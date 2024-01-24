@@ -4,7 +4,7 @@
   "description": "learn express",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon -e js,json,html"
+    "start": "nodemon -e js,json,njk"
   },
   "keywords": [],
   "author": "",

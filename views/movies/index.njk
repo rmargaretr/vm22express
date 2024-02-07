@@ -10,6 +10,7 @@
 
 <table>
     <thead>
+        <th>ID</th>
         <th>Name</th>
         <th>Year</th>
         <th>Description</th>
@@ -17,6 +18,7 @@
     <tbody>
         {% for movie in movies %}
         <tr>
+            <td>{{movie.id}}</td>
             <td>{{movie.name}}</td>
             <td>{{movie.year}}</td>
             <td>{{movie.description}}</td>

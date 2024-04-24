@@ -19,7 +19,7 @@ module.exports = {
       },
       description: {
         type: Sequelize.TEXT
-      },
+      }, 
       userId: {
         type: Sequelize.INTEGER,
         references: {

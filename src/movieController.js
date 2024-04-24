@@ -72,4 +72,4 @@ router.get('/delete/:id',async (req, res) => {
     res.redirect('/movies/');
 });
 
-module.exports = router;
+module.exports = router; 

@@ -1,7 +1,7 @@
 {
-  "name": "vm22express",
+  "name": "learnexpress",
   "version": "1.0.0",
-  "description": "learn express",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon -e js,json,njk -i sessions"

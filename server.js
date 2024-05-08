@@ -34,8 +34,36 @@ app.use((req, res, next) => {
 });
 
 app.get('/', async (req, res) => {
-  const movies = await Movie.findAll();
-  res.render('index.njk', {movies});
+  let pageCount = 8;
+  let page = req.query.page ?? 1;
+  let offset = (page-1) * pageCount
+  const movies = await Movie.findAll({limit: pageCount, offset: offset});
+  let count = await Movie.count();
+  let pages = Math.ceil(count/pageCount);
+  let elements = [];
+
+  for(let i = 1; i<=3; i++){
+    elements[i] = i;
+  }
+  
+  if(page > 1){
+   elements.push('...'); 
+  }
+
+  for(let i = page-2; i<=page+2 && i<=pages && i>0; i++){
+    elements[i] = i;
+  }
+
+  if(page < pages-2){
+    elements.push('...');
+  }
+
+  for(let i = pages-2; i<=pages; i++){
+    elements[i] = i;
+  }
+  elements = elements.filter(e => e);
+  console.log(elements);
+  res.render('index.njk', {movies, elements, page, pages});
 });
 
 app.get('/page2', (req, res) => {
